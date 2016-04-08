@@ -26,3 +26,18 @@ video, audio, .mejs-treehouse {
   margin: 0 auto;
   display: block;
 }
+
+#video_controls_bar {
+  background: #333;
+  padding: 10px;
+}
+
+#playpausebtn {
+
+}
+
+.video_player_box {
+  width: 600px;
+  background: #000;
+  margin: 0px auto;
+}
