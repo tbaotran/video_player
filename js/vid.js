@@ -1,4 +1,4 @@
-var vid, playbtn, seekslider, curtimetext, durtimetext;
+var vid, playbtn, seekslider, curtimetext, durtimetext, mutebtn;
 
 function initializePlayer() {
   // Set object references
@@ -7,10 +7,12 @@ function initializePlayer() {
   seekslider = document.getElementById("seekslider");
   curtimetext = document.getElementById("curtimetext");
   durtimetext = document.getElementById("durtimetext");
+  mutebtn = document.getElementById("mutebtn");
   // Add event listeners
   playbtn.addEventListener("click",playPause,false);
   seekslider.addEventListener("change",vidSeek,false);
   vid.addEventListener("timeupdate",seekTimeupdate,false);
+  mutebtn.addEventListener("click",vidMute,false);
 }
 window.onload = initializePlayer;
 
@@ -44,4 +46,14 @@ function seekTimeupdate() {
 
     curtimetext.innerHTML = curmins+":"+cursecs;
     durtimetext.innerHTML = durmins+":"+dursecs;
+}
+
+function vidMute() {
+    if(vid.muted) {
+      vid.muted = false;
+      mutebtn.innerHTML = "Mute";
+    } else {
+      vid.muted = true;
+      mutebtn.innerHTML = "Unmute";
+    }  
 }
