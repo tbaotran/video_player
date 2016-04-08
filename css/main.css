@@ -49,3 +49,19 @@ video, audio, .mejs-treehouse {
 #volumeslider {
   width: 80px;
 }
+
+input[type="range"] {
+  -webkit-appearance: none !important;
+  background: #000;
+  border: #666 1px solid;
+  height: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  background: #FFF;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  cursor: pointer;
+}
