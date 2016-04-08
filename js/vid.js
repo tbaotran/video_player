@@ -1,4 +1,4 @@
-var vid, playbtn, seekslider, curtimetext, durtimetext, mutebtn;
+var vid, playbtn, seekslider, curtimetext, durtimetext, mutebtn, volumeslider, fullscreenbtn;
 
 function initializePlayer() {
   // Set object references
@@ -8,11 +8,16 @@ function initializePlayer() {
   curtimetext = document.getElementById("curtimetext");
   durtimetext = document.getElementById("durtimetext");
   mutebtn = document.getElementById("mutebtn");
+  volumeslider = document.getElementById("volumeslider");
+  fullscreenbtn = document.getElementById("fullscreenbtn");
+
   // Add event listeners
   playbtn.addEventListener("click",playPause,false);
   seekslider.addEventListener("change",vidSeek,false);
   vid.addEventListener("timeupdate",seekTimeupdate,false);
   mutebtn.addEventListener("click",vidMute,false);
+  volumeslider.addEventListener("change",setVolume,false);
+  fullscreenbtn.addEventListener("click",toggleFullScreen,false);
 }
 window.onload = initializePlayer;
 
@@ -57,3 +62,25 @@ function vidMute() {
       mutebtn.innerHTML = "Unmute";
     }  
 }
+
+function setVolume() {
+    vid.volume = volumeslider.value /100;
+}
+
+function toggleFullScreen() {
+    if(vid.requestFullScreen) {
+      vid.requestFullScreen();
+    } else if(vid.webkitRequestFullScreen) {
+      vid.webkitRequestFullScreen();
+    } else if(vid.mozRequestFullScreen) {
+      vid.mozRequestFullScreen();
+    }
+}
+
+
+
+
+
+
+
+

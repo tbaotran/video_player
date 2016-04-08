@@ -41,3 +41,11 @@ video, audio, .mejs-treehouse {
   background: #000;
   margin: 0px auto;
 }
+
+#seekslider {
+  width: 180px
+}
+
+#volumeslider {
+  width: 80px;
+}
