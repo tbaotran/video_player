@@ -57,9 +57,11 @@ function vidMute() {
     if(vid.muted) {
       vid.muted = false;
       mutebtn.innerHTML = "Mute";
+      volumeslider.value = 100;
     } else {
       vid.muted = true;
       mutebtn.innerHTML = "Unmute";
+      volumeslider.value = 0;
     }  
 }
 
