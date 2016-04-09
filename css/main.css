@@ -35,6 +35,10 @@ video, audio, .mejs-treehouse {
 #playpausebtn {
 
 }
+.play-btn{
+  display: none;
+}
+
 
 .video_player_box {
   width: 600px;
@@ -44,6 +48,10 @@ video, audio, .mejs-treehouse {
 
 #seekslider {
   width: 180px
+}
+
+.volume-btn{
+  display: none;
 }
 
 #volumeslider {

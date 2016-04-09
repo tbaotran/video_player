@@ -1,4 +1,4 @@
-var vid, playbtn, seekslider, curtimetext, durtimetext, mutebtn, volumeslider, fullscreenbtn;
+var vid, playbtn, seekslider, curtimetext, durtimetext, mutebtn, volumeslider, fullscreenbtn, ccbtn;
 
 function initializePlayer() {
   // Set object references
@@ -10,6 +10,7 @@ function initializePlayer() {
   mutebtn = document.getElementById("mutebtn");
   volumeslider = document.getElementById("volumeslider");
   fullscreenbtn = document.getElementById("fullscreenbtn");
+  ccbtn = document.getElementById("ccbtn");
 
   // Add event listeners
   playbtn.addEventListener("click",playPause,false);
@@ -18,16 +19,21 @@ function initializePlayer() {
   mutebtn.addEventListener("click",vidMute,false);
   volumeslider.addEventListener("change",setVolume,false);
   fullscreenbtn.addEventListener("click",toggleFullScreen,false);
+  ccbtn.addEventListener("click",toggleCaption,false);
 }
 window.onload = initializePlayer;
 
 function playPause() {
     if(vid.paused) {
       vid.play();
-      playbtn.innerHTML = "Pause";
+      // playbtn.innerHTML = "Pause";
+      $('.play-btn').hide();
+      $('.pause-btn').show();  
     } else {
       vid.pause();
-      playbtn.innerHTML = "Play";
+      // playbtn.innerHTML = "Play";
+      $('.pause-btn').hide();
+      $('.play-btn').show();
     }
 } 
 
@@ -56,14 +62,35 @@ function seekTimeupdate() {
 function vidMute() {
     if(vid.muted) {
       vid.muted = false;
-      mutebtn.innerHTML = "Mute";
+      // mutebtn.innerHTML = "Mute";
+      $('.volume-btn').hide();
+      $('.mute-btn').show();
       volumeslider.value = 100;
     } else {
       vid.muted = true;
-      mutebtn.innerHTML = "Unmute";
+      // mutebtn.innerHTML = "Unmute";
+      $('.mute-btn').hide();
+      $('.volume-btn').show();
       volumeslider.value = 0;
     }  
 }
+
+
+// $muteButton.click(function () { 
+//   if($video[0].muted === false){ 
+//     $video[0].muted = true; //mutes the video
+//       $('.mute-btn').hide();
+//       $('.volume-btn').show();    
+//   } else {
+//     $video[0].muted = false; //gives sound to the video
+//       $('.volume-btn').hide();
+//       $('.mute-btn').show();
+//     }
+//   });
+
+
+
+
 
 function setVolume() {
     vid.volume = volumeslider.value /100;
@@ -76,6 +103,16 @@ function toggleFullScreen() {
       vid.webkitRequestFullScreen();
     } else if(vid.mozRequestFullScreen) {
       vid.mozRequestFullScreen();
+    }
+}
+
+function toggleCaption() {
+    if(vid.requestCaption) {
+      vid.requestCaption();
+    } else if(vid.webkitRequestCaption) {
+      vid.webkitRequestCaption();
+    } else if(vid.mozRequestCaption) {
+      vid.mozRequestCaption();
     }
 }
 
