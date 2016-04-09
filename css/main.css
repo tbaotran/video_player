@@ -9,6 +9,18 @@ body {
   color: #384047;
 }
 
+
+h1, h2 {
+  margin: 30px 0;
+  text-align: center;
+}
+
+
+video {
+  width: 100%;
+  display: block;
+}
+
 .video-wrapper {
   margin: 0 auto;
   position: relative;
@@ -16,35 +28,6 @@ body {
   left: 0;
   top: 0;
 } 
-  /*max-width: 90%;
-  margin: 10px auto;
-  padding: 10px 20px;
-  background: #f4f7f8;
-  border-radius: 8px;*/
-
-h1, h2 {
-  margin: 30px 0;
-  text-align: center;
-}
-
-p {
-
-}
-
-/*img {
-  max-width: 100%;
-  display: block;
-}*/
-video {
-  width: 100%;
-  display: block;
-}
-
-/*video, audio, .mejs-treehouse {
-  margin: 0 auto;
-  display: block;
-}*/
-
 #video_controls_bar {
   background: #ccc;
   padding: 10px;
@@ -56,7 +39,6 @@ video {
 .play-btn{
   display: none;
 }
-
 
 .video_player_box {
   width: 100%;
