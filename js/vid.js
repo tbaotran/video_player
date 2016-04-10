@@ -2,7 +2,7 @@ var $vidContainer = $("#video-container");
 
 var $video_controls =$('#video_controls_bar');
 
-var vid, playbtn, seekslider, curtimetext, durtimetext, mutebtn, volumeslider, fullscreenbtn;
+var vid, playbtn, seekslider, curtimetext, durtimetext, mutebtn, volumeslider, fullscreenbtn, ccbtn;
 
 function initializePlayer() {
   // Set object references
@@ -14,7 +14,7 @@ function initializePlayer() {
   mutebtn = document.getElementById("mutebtn");
   volumeslider = document.getElementById("volumeslider");
   fullscreenbtn = document.getElementById("fullscreenbtn");
-  // ccbtn = document.getElementById("ccbtn");
+  ccbtn = document.getElementById("ccbtn");
 
   // Add event listeners
   playbtn.addEventListener("click",playPause,false);
@@ -23,7 +23,7 @@ function initializePlayer() {
   mutebtn.addEventListener("click",vidMute,false);
   volumeslider.addEventListener("change",setVolume,false);
   fullscreenbtn.addEventListener("click",toggleFullScreen,false);
-  // ccbtn.addEventListener("click",toggleCaption,false);
+  ccbtn.addEventListener("click",toggleCaptions,false);
 }
 window.onload = initializePlayer;
 
@@ -93,15 +93,15 @@ function toggleFullScreen() {
     }
 }
 
-// function toggleCaption() {
-//     if(vid.requestCaption) {
-//       vid.requestCaption();
-//     } else if(vid.webkitRequestCaption) {
-//       vid.webkitRequestCaption();
-//     } else if(vid.mozRequestCaption) {
-//       vid.mozRequestCaption();
-//     }
-// }
+function toggleCaption() {
+    if(vid.requestCaptions) {
+      vid.requestCaption();
+    } else if(vid.webkitRequestCaptions) {
+      vid.webkitRequestCaptions();
+    } else if(vid.mozRequestCaptions) {
+      vid.mozRequestCaptions();
+    }
+}
 
 $vidContainer.mouseenter(function () {
       $video_controls.fadeIn(500);
