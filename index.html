@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connecting The Internet</title>
+    <title>FEWD P7 | Interactive Video</title>
 
     <link rel="stylesheet" href="css/normalize.css">
     <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
@@ -11,25 +11,27 @@
 
   </head>
   <body>
-
-    <h1>Connecting The Internet</h1>
-    <div class="video-wrapper">
+    <div id="video-container" class="video-wrapper">
         <div class="video_player_box">             
-            <video id="my_video" controls width="600" height="400" >
+            <video id="my_video">
               <source src="video/video.mp4" type="video/mp4">
               <source src="video/video.ogg" type="video/ogg">
               <p>Your browser does not support the video tag.</p>
             </video>
-        
-        <div id="video_controls_bar">
-                  <button id="playpausebtn"><img class="play-btn" src="icons/play-icon.png" alt="play button"><img class="pause-btn" src="icons/pause-icon.png" alt="pause button"></button>
-                  <input id="seekslider" type="range" min="0" max="100" value="0" step="1"></input>
-                  <span id="curtimetext"></span> / <span id="durtimetext"></span>
-                  <button id="mutebtn"><img src="icons/volume-off-icon.png" class="volume-btn" alt="volume button"><img src="icons/volume-on-icon.png" class="mute-btn" alt="mute button"></button>
-                  <input id="volumeslider" type="range" min="0" max="100" value="100" step="1"></input>
-                  <button id="fullscreenbtn"><img src="icons/fullscreen-icon.png" class="full-screen" alt="fullscreen button"></button>
-                  <button id="ccbtn"><img src="icons/captions-icon.png" class="cc-btn" alt="captions button"></button>
-        </div>
+                <div id="progress">
+                    <input id="seekslider" type="range" min="0" max="100" value="0" step="1"></input>
+                    
+                </div>
+                <div id="video_controls_bar">
+                          <button id="playpausebtn"><img class="play-btn" src="icons/play-icon.png" alt="play button"><img class="pause-btn" src="icons/pause-icon.png" alt="pause button"></button>
+                          <span id="curtimetext"></span> / <span id="durtimetext"></span>
+                          <div id="ctr-right">
+                          <button id="mutebtn"><img src="icons/volume-off-icon.png" class="volume-btn" alt="volume button"><img src="icons/volume-on-icon.png" class="mute-btn" alt="mute button"></button>
+                          <input id="volumeslider" type="range" min="0" max="100" value="100" step="1"></input>
+                          <button id="fullscreenbtn"><img src="icons/fullscreen-icon.png" class="full-screen" alt="fullscreen button"></button>
+                          </div>
+                          <!-- <button id="ccbtn"><img src="icons/captions-icon.png" class="cc-btn" alt="captions button"></button> -->
+                </div>
         </div>
     </div>
         <div class="caption">

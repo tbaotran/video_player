@@ -1,4 +1,8 @@
-var vid, playbtn, seekslider, curtimetext, durtimetext, mutebtn, volumeslider, fullscreenbtn, ccbtn;
+var $vidContainer = $("#video-container");
+
+var $video_controls =$('#video_controls_bar');
+
+var vid, playbtn, seekslider, curtimetext, durtimetext, mutebtn, volumeslider, fullscreenbtn;
 
 function initializePlayer() {
   // Set object references
@@ -10,7 +14,7 @@ function initializePlayer() {
   mutebtn = document.getElementById("mutebtn");
   volumeslider = document.getElementById("volumeslider");
   fullscreenbtn = document.getElementById("fullscreenbtn");
-  ccbtn = document.getElementById("ccbtn");
+  // ccbtn = document.getElementById("ccbtn");
 
   // Add event listeners
   playbtn.addEventListener("click",playPause,false);
@@ -19,7 +23,7 @@ function initializePlayer() {
   mutebtn.addEventListener("click",vidMute,false);
   volumeslider.addEventListener("change",setVolume,false);
   fullscreenbtn.addEventListener("click",toggleFullScreen,false);
-  ccbtn.addEventListener("click",toggleCaption,false);
+  // ccbtn.addEventListener("click",toggleCaption,false);
 }
 window.onload = initializePlayer;
 
@@ -75,23 +79,6 @@ function vidMute() {
     }  
 }
 
-
-// $muteButton.click(function () { 
-//   if($video[0].muted === false){ 
-//     $video[0].muted = true; //mutes the video
-//       $('.mute-btn').hide();
-//       $('.volume-btn').show();    
-//   } else {
-//     $video[0].muted = false; //gives sound to the video
-//       $('.volume-btn').hide();
-//       $('.mute-btn').show();
-//     }
-//   });
-
-
-
-
-
 function setVolume() {
     vid.volume = volumeslider.value /100;
 }
@@ -106,15 +93,25 @@ function toggleFullScreen() {
     }
 }
 
-function toggleCaption() {
-    if(vid.requestCaption) {
-      vid.requestCaption();
-    } else if(vid.webkitRequestCaption) {
-      vid.webkitRequestCaption();
-    } else if(vid.mozRequestCaption) {
-      vid.mozRequestCaption();
-    }
-}
+// function toggleCaption() {
+//     if(vid.requestCaption) {
+//       vid.requestCaption();
+//     } else if(vid.webkitRequestCaption) {
+//       vid.webkitRequestCaption();
+//     } else if(vid.mozRequestCaption) {
+//       vid.mozRequestCaption();
+//     }
+// }
+
+$vidContainer.mouseenter(function () {
+      $video_controls.fadeIn(500);
+    }),
+$vidContainer.mouseleave(function () {
+      $video_controls.fadeOut(500);
+    });
+
+
+
 
 
 
