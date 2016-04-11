@@ -2,7 +2,7 @@ var $vidContainer = $("#video-container");
 
 var $video_controls =$('#video_controls_bar');
 
-var vid, playbtn, seekslider, curtimetext, durtimetext, mutebtn, volumeslider, fullscreenbtn, ccbtn;
+var vid, playbtn, seekslider, curtimetext, durtimetext, mutebtn, volumeslider, fullscreenbtn, subtitles;
 
 function initializePlayer() {
   // Set object references
@@ -14,7 +14,7 @@ function initializePlayer() {
   mutebtn = document.getElementById("mutebtn");
   volumeslider = document.getElementById("volumeslider");
   fullscreenbtn = document.getElementById("fullscreenbtn");
-  ccbtn = document.getElementById("ccbtn");
+  subtitles = document.getElementById("subtitles");
 
   // Add event listeners
   playbtn.addEventListener("click",playPause,false);
@@ -23,7 +23,7 @@ function initializePlayer() {
   mutebtn.addEventListener("click",vidMute,false);
   volumeslider.addEventListener("change",setVolume,false);
   fullscreenbtn.addEventListener("click",toggleFullScreen,false);
-  ccbtn.addEventListener("click",toggleCaptions,false);
+  subtitles.addEventListener("click",toggleCaptions,false);
 }
 window.onload = initializePlayer;
 
@@ -93,7 +93,7 @@ function toggleFullScreen() {
     }
 }
 
-function toggleCaption() {
+function toggleCaptions() {
     if(vid.requestCaptions) {
       vid.requestCaption();
     } else if(vid.webkitRequestCaptions) {

@@ -9,13 +9,6 @@ body {
   color: #384047;
 }
 
-
-h1, h2 {
-  margin: 30px 0;
-  text-align: center;
-}
-
-
 video {
   width: 100%;
   display: block;
@@ -30,7 +23,6 @@ video {
 } 
 #video_controls_bar {
   background: #ccc;
-  /*margin-top: -32px;*/
 }
 
 #playpausebtn {
@@ -45,8 +37,17 @@ video {
   background: #ccc;
   margin: 0px auto;
 }
+
 #progress {
   margin-top: -6px;
+}
+
+.prog-time {
+  color: white;
+}
+
+.control span {
+  text-decoration-color: white;
 }
 
 #seekslider {
