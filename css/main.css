@@ -4,89 +4,121 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Nunito', sans-serif;
-  color: #384047;
+body{
+  font-family: 'Open Sans', sans-serif;
+    color: #384047;
+  text-align: left;
+  height: 100vh;
 }
 
-video {
-  width: 100%;
-  display: block;
-}
 
-.video-wrapper {
+/* Video Containers */
+#video-container{
   margin: 0 auto;
   position: relative;
   width:100%;
   left: 0;
   top: 0;
-} 
-#video_controls_bar {
-  background: #ccc;
 }
 
-#playpausebtn {
-
+#video-player:-webkit-full-screen video {
+  width: 100%;
+  height: 100%;
 }
+
+#video-player{
+  width: 100%;
+}
+
+video::-webkit-media-controls-enclosure {
+  display:none !important;
+}
+
+video:-webkit-full-screen{ 
+  max-width: 100%; 
+}
+
+video:-moz-full-screen{ max-height: 100%; }
+
+#video-controls{
+  position: absolute;
+    background-color: #000;
+  width: 100%;
+  margin: 0 auto;
+  opacity: .6;
+    z-index: 1000;
+    bottom: 0;
+    left:0;
+}
+
+#wrapper:hover{
+  display: block;
+}
+
+
+/*Buttons and Progres bar*/
+
+button{
+  background-color: #000;
+  border-color: #000;
+  margin-top: 1px;
+    float: right;
+}
+
+progress{
+    width: 100%;
+    height: 6px;
+    background-color: #8A8585;
+}
+
+#play-pause{
+  float: left;
+}
+
+
 .pause-btn{
   display: none;
 }
 
-.video_player_box {
-  width: 100%;
-  background: #ccc;
-  margin: 0px auto;
+#current,
+#duration{
+  display: inline-block;
+  color: #fff;
+  margin-top: 8px;
+  font-size: 15px;
+  float: left;
 }
 
-#progress {
-  margin-top: -6px;
-}
-
-.prog-time {
-  color: white;
-}
-
-.control span {
-  text-decoration-color: white;
-}
-
-#seekslider {
-  width: 100%;
-  height: 4px;
-  /*background-color: #8A8585;*/
+#current{
+  padding-left: 10px;
 }
 
 .volume-btn{
   display: none;
 }
 
-#volumeslider {
-  width: 80px;
-  /*float: right;*/
+#volume-slider {
+  float:right;
+  margin-top: 7px;
 }
 
-#ctr-right {
+#mute,
+#full-screen{
   float: right;
+  display: inline-block;
 }
 
-input[type="range"] {
-  -webkit-appearance: none !important;
-  background: #000;
-  border: #666 1px solid;
-  height: 4px;
-}
 
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none !important;
-  background: #FFF;
-  height: 15px;
-  width: 15px;
-  border-radius: 100%;
-  cursor: pointer;
-}
+/*Text highligt*/
 
 .caption{
   margin: 0 auto;
-  width: 90%;
+    width: 90%;
 }
+
+.highlight{
+  color: #f5871f
+}
+
+
 
