@@ -10,6 +10,10 @@ var $duration = $("#duration");
 var $controls =$('#wrapper');
 var $subtitles = $('#subtitles');
 
+
+
+
+
 $playButton.click(function () { 
   if ($video.get(0).paused){ 
       $video.get(0).play(); 
@@ -39,6 +43,17 @@ $muteButton.click(function () {
 $volumeSlider.on("change", function(){ 
   $video[0].volume = $volumeSlider[0].value;
 });
+
+$subtitles.click(function() {
+  toggleCC();
+});
+
+function toggleCC() {
+  var videoTrak = document.getElementById('video-player'); 
+    for (var i = 0; i < videoTrak.textTracks.length; i++) {
+    videoTrak.textTracks[i].mode = 'hidden';
+  }
+}
 
 $fullScreen.click(function() {
     toggleFullScreen();
