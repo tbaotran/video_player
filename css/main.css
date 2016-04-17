@@ -101,7 +101,13 @@ progress{
   margin-top: 7px;
 }
 
+.cc-btn-off{
+  display: none;
+
+}
+
 #mute,
+#subtitles,
 #full-screen{
   float: right;
   display: inline-block;

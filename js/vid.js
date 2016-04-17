@@ -10,10 +10,6 @@ var $duration = $("#duration");
 var $controls =$('#wrapper');
 var $subtitles = $('#subtitles');
 
-
-
-
-
 $playButton.click(function () { 
   if ($video.get(0).paused){ 
       $video.get(0).play(); 
@@ -44,17 +40,42 @@ $volumeSlider.on("change", function(){
   $video[0].volume = $volumeSlider[0].value;
 });
 
-$subtitles.click(function() {
-  toggleCC();
-});
+/* Toggle CC */ 
+  
+var vid = document.getElementById('video-player'); 
+var track = vid.addTextTrack('subtitles', 'de', 'es', 'en');
+track.mode = 'hidden';
 
-function toggleCC() {
-  var videoTrak = document.getElementById('video-player'); 
-    for (var i = 0; i < videoTrak.textTracks.length; i++) {
-    videoTrak.textTracks[i].mode = 'hidden';
-  }
+track.addCue(new VTTCue(0.1, 3.9, "Now that we've looked at the architecture of the internet, let's see how you might"));
+track.addCue(new VTTCue(4, 6.9, "connect your personal devices to the internet inside your house."));
+track.addCue(new VTTCue(7, 10.9, "Well there are many ways to connect to the internet, and"));
+track.addCue(new VTTCue(11, 12.9, "most often people connect wirelessly."));
+track.addCue(new VTTCue(13, 16.9, "Let's look at an example of how you can connect to the internet."));
+track.addCue(new VTTCue(17, 21.9, "If you live in a city or a town, you probably have a coaxial cable for"));
+track.addCue(new VTTCue(22, 25.9, "cable Internet, or a phone line if you have DSL, running to the outside of"));
+track.addCue(new VTTCue(26, 31.9, "your house, that connects you to the Internet Service Provider, or ISP."));
+track.addCue(new VTTCue(32, 33.9, "If you live far out in the country, you'll more likely have"));
+track.addCue(new VTTCue(34, 38.9, "a dish outside your house, connecting you wirelessly to your closest ISP, or"));
+track.addCue(new VTTCue(39, 41.9, "you might also use the telephone system."));
+track.addCue(new VTTCue(42, 45.9, "Whether a wire comes straight from the ISP hookup outside your house, or"));
+track.addCue(new VTTCue(46, 48.9, "it travels over radio waves from your roof,"));
+track.addCue(new VTTCue(49, 52.9, "the first stop a wire will make once inside your house, is at your modem."));
+track.addCue(new VTTCue(53, 56.9, "A modem is what connects the internet to your network at home."));
+track.addCue(new VTTCue(57, 59, "A few common residential modems are DSL or"));
+
+var capToggle = function (val) {
+    if (val == 'on') {
+        track.mode = 'showing';
+        $('.cc-btn-on').hide();
+        $('.cc-btn-off').show(); 
+    } else {
+        track.mode = 'hidden';
+        $('.cc-btn-off').hide();
+        $('.cc-btn-on').show();
+    }
 }
 
+/* Toggle Full Screen */
 $fullScreen.click(function() {
     toggleFullScreen();
   });
