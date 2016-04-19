@@ -32,7 +32,7 @@ $muteButton.click(function () {
     $video[0].muted = false; //gives sound to the video
       $('.volume-btn').hide();
       $('.mute-btn').show();
-      $volumeSlider[0].value = .8;
+      $volumeSlider[0].value = 1;
     }
   });
 
@@ -43,7 +43,7 @@ $volumeSlider.on("change", function(){
 /* Toggle CC */ 
   
 var vid = document.getElementById('video-player'); 
-var track = vid.addTextTrack('subtitles', 'de', 'es', 'en');
+var track = vid.addTextTrack('subtitles', 'English', 'en');
 track.mode = 'hidden';
 
 track.addCue(new VTTCue(0.1, 3.9, "Now that we've looked at the architecture of the internet, let's see how you might"));
@@ -160,9 +160,9 @@ $vidContainer.mouseleave(function () {
 $video.on("timeupdate", function() {
   var $videoTime = $video[0].currentTime;
   if ($videoTime < 9.5) {
-    $duration.html("00:0" + Math.round($videoTime) + " / 00:59");   
+    $duration.html("00:0" + Math.floor($videoTime) + " / 00:59");   
   } else {
-    $duration.html("00:" + Math.round($videoTime) + " / 00:59");      
+    $duration.html("00:" + Math.floor($videoTime) + " / 00:59");      
   }
 });
 
@@ -194,11 +194,14 @@ function constructIntervals(transcripts) {
     return intervals;
 }
 
+
 function isTimeWithinInterval(interval, currentTime) {
     var lowerBoundSeconds = interval.lowerBound;
     var upperBoundSeconds = interval.upperBound;
     return lowerBoundSeconds <= currentTime && currentTime < upperBoundSeconds;
 }
+
+
 
 /* Highlight Text from Video */
 $(function () {
@@ -214,3 +217,11 @@ $(function () {
     });
 
 });
+
+
+
+
+
+
+  
+
