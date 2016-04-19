@@ -7,12 +7,14 @@
 body{
   font-family: 'Open Sans', sans-serif;
   color: #384047;
+  background-color: #303030;
   text-align: left;
   height: 100vh;
 }
 
 p {
   font-size: 18px;
+  margin-top: -2px;
 }
 
 ::cue {
@@ -22,12 +24,10 @@ p {
   font-size: 18px;
 }
 
-::cue:onhover{
-  display: none;
-}
-
 /* Video Containers */
 #video-container{
+  min-width: 420px;
+  max-width: 1280px;
   margin: 0 auto;
   position: relative;
   width:100%;
@@ -126,7 +126,7 @@ progress{
 
 .cc-text{
   color: #fff;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .cc-div-text{
@@ -146,9 +146,13 @@ progress{
 /*Text highligt*/
 
 .caption{
+  min-width: 420px;
+  max-width: 1280px;  
   margin: 0 auto;
-  width: 90%;
+  padding: 20px;
+  width: 100%;
   font-size: 15px;
+  background-color: #f0e9da;
 }
 
 .highlight{
