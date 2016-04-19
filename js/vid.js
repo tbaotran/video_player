@@ -8,7 +8,8 @@ var $progress = $('#progress');
 var $progressBar = $('#progress-bar');
 var $duration = $("#duration");
 var $controls =$('#wrapper');
-var $subtitles = $('#subtitles');
+var $subtitles = $('#subtitles'); //Not being use
+var $capToggle = $('#cc-on-off');
 
 $playButton.click(function () { 
   if ($video.get(0).paused){ 
@@ -63,17 +64,17 @@ track.addCue(new VTTCue(49, 52.9, "the first stop a wire will make once inside y
 track.addCue(new VTTCue(53, 56.9, "A modem is what connects the internet to your network at home."));
 track.addCue(new VTTCue(57, 59, "A few common residential modems are DSL or"));
 
-var capToggle = function (val) {
-    if (val == 'on') {
+$capToggle.click(function() {
+  if (track.mode == 'hidden') {
         track.mode = 'showing';
         $('.cc-btn-on').hide();
-        $('.cc-btn-off').show(); 
+        $('.cc-btn-off').show();       
     } else {
         track.mode = 'hidden';
         $('.cc-btn-off').hide();
         $('.cc-btn-on').show();
     }
-}
+});
 
 /* Toggle Full Screen */
 $fullScreen.click(function() {
@@ -151,9 +152,11 @@ $progress.mousedown(progressMouseDown);
 /* Hide controls bar */
 $vidContainer.mouseenter(function () {
       $controls.fadeIn(500);
+      // track.mode = 'hidden';
     }),
 $vidContainer.mouseleave(function () {
       $controls.fadeOut(500);
+      // track.mode = 'showing';
     });
 
 /* Update currentTime and duration */

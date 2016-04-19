@@ -85,6 +85,10 @@ progress{
     background-color: #8A8585;
 }
 
+#progress{
+  color:  yellow;
+}
+
 #play-pause{
   float: left;
 }
