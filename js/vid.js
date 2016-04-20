@@ -1,14 +1,13 @@
-var $video = $("#video-player");
+var $video = $('#video-player');
 var $vidContainer = $("#video-container");
-var $playButton = $("#play-pause");
-var $muteButton = $("#mute");
-var $volumeSlider = $("#volume-slider");
-var $fullScreen = $("#full-screen");
+var $playButton = $('#play-pause');
+var $muteButton = $('#mute');
+var $volumeSlider = $('#volume-slider');
+var $fullScreen = $('#full-screen');
 var $progress = $('#progress');
 var $progressBar = $('#progress-bar');
-var $duration = $("#duration");
+var $duration = $('#duration');
 var $controls =$('#wrapper');
-var $subtitles = $('#subtitles'); //Not being use
 var $capToggle = $('#cc-on-off');
 var $speedToggle = $('#speed');
 
@@ -62,22 +61,22 @@ var vid = document.getElementById('video-player');
 var track = vid.addTextTrack('subtitles', 'English', 'en');
 track.mode = 'hidden';
 
-track.addCue(new VTTCue(0.1, 3.9, "Now that we've looked at the architecture of the internet, let's see how you might"));
-track.addCue(new VTTCue(4, 6.9, "connect your personal devices to the internet inside your house."));
-track.addCue(new VTTCue(7, 10.9, "Well there are many ways to connect to the internet, and"));
-track.addCue(new VTTCue(11, 12.9, "most often people connect wirelessly."));
-track.addCue(new VTTCue(13, 16.9, "Let's look at an example of how you can connect to the internet."));
-track.addCue(new VTTCue(17, 21.9, "If you live in a city or a town, you probably have a coaxial cable for"));
-track.addCue(new VTTCue(22, 25.9, "cable Internet, or a phone line if you have DSL, running to the outside of"));
-track.addCue(new VTTCue(26, 31.9, "your house, that connects you to the Internet Service Provider, or ISP."));
-track.addCue(new VTTCue(32, 33.9, "If you live far out in the country, you'll more likely have"));
-track.addCue(new VTTCue(34, 38.9, "a dish outside your house, connecting you wirelessly to your closest ISP, or"));
-track.addCue(new VTTCue(39, 41.9, "you might also use the telephone system."));
-track.addCue(new VTTCue(42, 45.9, "Whether a wire comes straight from the ISP hookup outside your house, or"));
-track.addCue(new VTTCue(46, 48.9, "it travels over radio waves from your roof,"));
-track.addCue(new VTTCue(49, 52.9, "the first stop a wire will make once inside your house, is at your modem."));
-track.addCue(new VTTCue(53, 56.9, "A modem is what connects the internet to your network at home."));
-track.addCue(new VTTCue(57, 59, "A few common residential modems are DSL or"));
+track.addCue(new VTTCue(0.1, 3.9, "Now that we've looked at the architecture of the internet, let's see how you might\n "));
+track.addCue(new VTTCue(4, 6.9, "connect your personal devices to the internet inside your house.\n "));
+track.addCue(new VTTCue(7, 10.9, "Well there are many ways to connect to the internet, and\n "));
+track.addCue(new VTTCue(11, 12.9, "most often people connect wirelessly.\n "));
+track.addCue(new VTTCue(13, 16.9, "Let's look at an example of how you can connect to the internet.\n "));
+track.addCue(new VTTCue(17, 21.9, "If you live in a city or a town, you probably have a coaxial cable for \n "));
+track.addCue(new VTTCue(22, 25.9, "cable Internet, or a phone line if you have DSL, running to the outside of \n "));
+track.addCue(new VTTCue(26, 31.9, "your house, that connects you to the Internet Service Provider, or ISP. \n "));
+track.addCue(new VTTCue(32, 33.9, "If you live far out in the country, you'll more likely have \n "));
+track.addCue(new VTTCue(34, 38.9, "a dish outside your house, connecting  you wirelessly to your closest ISP, or \n "));
+track.addCue(new VTTCue(39, 41.9, "you might also use the telephone system. \n "));
+track.addCue(new VTTCue(42, 45.9, "Whether a wire comes straight from the ISP hookup outside your house, or \n "));
+track.addCue(new VTTCue(46, 48.9, "it travels over radio waves from your roof, \n "));
+track.addCue(new VTTCue(49, 52.9, "the first stop a wire will make once inside your house, is at your modem. \n "));
+track.addCue(new VTTCue(53, 56.9, "A modem is what connects the internet to your network at home. \n "));
+track.addCue(new VTTCue(57, 59, "A few common residential modems are DSL or \n "));
 
 $capToggle.click(function() {
   if (track.mode == 'hidden') {
@@ -156,7 +155,7 @@ $progress.mousedown(progressMouseDown);
         }
         
         function updateProgressWidth(percent) {
-            $progressBar.width((percent * 100) + "%");
+            $progressBar.width((percent * 100) + '%');
         }
         
         function updateVideoTime(percent) {
@@ -168,7 +167,7 @@ $progress.mousedown(progressMouseDown);
 $vidContainer.mouseenter(function () {
       $controls.fadeIn(500);
       // track.mode = 'hidden';
-    }),
+    });
 $vidContainer.mouseleave(function () {
       $controls.fadeOut(500);
       // track.mode = 'showing';
@@ -178,11 +177,12 @@ $vidContainer.mouseleave(function () {
 $video.on("timeupdate", function() {
   var $videoTime = $video[0].currentTime;
   if ($videoTime < 9.5) {
-    $duration.html("00:0" + Math.floor($videoTime) + " / 00:59");   
+    $duration.html('00:0' + Math.floor($videoTime) + ' / 00:59');   
   } else {
-    $duration.html("00:" + Math.floor($videoTime) + " / 00:59");      
+    $duration.html('00:' + Math.floor($videoTime) + ' / 00:59');      
   }
 });
+
 
 /* Setup for Text Highlight*/
 function secondsFromTimespan(timeSpan) {
@@ -212,18 +212,15 @@ function constructIntervals(transcripts) {
     return intervals;
 }
 
-
 function isTimeWithinInterval(interval, currentTime) {
     var lowerBoundSeconds = interval.lowerBound;
     var upperBoundSeconds = interval.upperBound;
     return lowerBoundSeconds <= currentTime && currentTime < upperBoundSeconds;
 }
 
-
-
 /* Highlight Text from Video */
 $(function () {
-    var transcripts = $("span[data-start-time]");
+    var transcripts = $('span[data-start-time]');
     var intervals = constructIntervals(transcripts);
     $video[0].addEventListener('timeupdate', function () {
         $('span[data-start-time]').removeClass('highlight');
@@ -237,7 +234,19 @@ $(function () {
 });
 
 
+/* Click on transcript to be taken to that time in the video */
+$("span").click(function() {
+  var transcriptTime = $(this).attr("data-start-time");
+  $video[0].currentTime = transcriptTime;
+});
 
+  // $("span").each(function() {
+  //   $(this).on('click', function(){
+  //     var $cueStartTime = $(this).attr('data-start-time');
+  //     $video[0].play();
+  //     $video[0].currentTime = $cueStartTime;
+  //   });
+  // });
 
 
 
