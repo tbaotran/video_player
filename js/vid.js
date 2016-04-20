@@ -10,6 +10,7 @@ var $duration = $("#duration");
 var $controls =$('#wrapper');
 var $subtitles = $('#subtitles'); //Not being use
 var $capToggle = $('#cc-on-off');
+var $speedToggle = $('#speed');
 
 $playButton.click(function () { 
   if ($video.get(0).paused){ 
@@ -41,8 +42,22 @@ $volumeSlider.on("change", function(){
   $video[0].volume = $volumeSlider[0].value;
 });
 
-/* Toggle CC */ 
-  
+/* Toggle Speed Button */
+$speedToggle.click(function() {
+  toggleSpeed();
+});
+
+function toggleSpeed() {
+  if($video[0].playbackRate === 1) {
+    $video[0].playbackRate = 1.5;
+    $speedToggle.text("Speed: 1.5x");
+  } else if ($video[0].playbackRate === 1.5) {
+    $video[0].playbackRate = 1;
+    $speedToggle.text("Speed: 1.0x");        
+  } 
+}
+
+/* Toggle CC Button */   
 var vid = document.getElementById('video-player'); 
 var track = vid.addTextTrack('subtitles', 'English', 'en');
 track.mode = 'hidden';
@@ -76,7 +91,7 @@ $capToggle.click(function() {
     }
 });
 
-/* Toggle Full Screen */
+/* Toggle Full Screen Button */
 $fullScreen.click(function() {
     toggleFullScreen();
   });
