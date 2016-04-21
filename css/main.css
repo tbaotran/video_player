@@ -5,7 +5,7 @@
 }
 
 body{
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', Georgia;
   color: #384047;
   background-color: #303030;
   text-align: left;
@@ -15,13 +15,6 @@ body{
 p {
   font-size: 18px;
   margin-top: -2px;
-}
-
-::cue {
-  color: #fff;
-  background: transparent;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
 }
 
 /* Video Containers */
@@ -44,15 +37,40 @@ p {
   width: 100%;
 }
 
+video::-webkit-media-text-track-container {
+top: -36px;
+}
+
+video::-webkit-media-text-track-background {
+background-color: black;
+border-radius: 2px;
+box-shadow: 0 0px 5px 0px #000;
+opacity: 0.6;
+padding: 4px 8px 6px 10px;
+}
+
+video::-webkit-media-text-track-display {
+color: white;
+font-family: Open Sans, Georgia;
+font-size: 18px;
+padding: 1px 1px 10px 1px;
+}
+
 video::-webkit-media-controls-enclosure {
   display:none !important;
 }
 
-video:-webkit-full-screen{ 
+video::-webkit-full-screen{ 
   max-width: 100%; 
 }
 
-video:-moz-full-screen{ max-height: 100%; }
+video::-moz-full-screen{ max-height: 100%; }
+
+cue:: {
+  color: blue;
+  font: 100px;
+  background: white;
+}
 
 #video-controls{
   position: absolute;
@@ -80,7 +98,7 @@ button{
 
 progress{
     width: 100%;
-    height: 7px;
+    height: 6px;
     background-color: #8A8585;
 }
 
