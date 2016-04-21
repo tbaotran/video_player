@@ -56,10 +56,9 @@ video:-moz-full-screen{ max-height: 100%; }
 
 #video-controls{
   position: absolute;
-  background-color: #000;
+  background-color: none;
   width: 100%;
   margin: 0 auto;
-  opacity: .6;
   z-index: 1000;
   bottom: 0;
   left:0;
@@ -72,8 +71,9 @@ video:-moz-full-screen{ max-height: 100%; }
 /*Buttons and Progres bar*/
 
 button{
-  background-color: #000;
-  border-color: #000;
+  border: none;
+  background: none;
+  outline: none;
   margin-top: 1px;
   float: right;
 }
