@@ -189,11 +189,11 @@ $progress.mousedown(progressMouseDown);
 
 /* Hide controls bar */
 $vidContainer.mouseenter(function () {
-      $controls.fadeIn(500);
+      $controls.fadeIn(250);
       // track.mode = 'hidden';
     });
 $vidContainer.mouseleave(function () {
-      $controls.fadeOut(500);
+      $controls.fadeOut(250);
       // track.mode = 'showing';
     });
 

@@ -3,14 +3,6 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-.clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
 
 body{
   font-family: 'Open Sans', Georgia;
@@ -28,6 +20,7 @@ p {
 /* Video Containers */
 #video-container{
   max-width: 800px;
+  min-width: 370px;
   margin: 0 auto;
   position: relative;
   width:100%;
@@ -96,7 +89,8 @@ video::-webkit-full-screen{
 }
 
 video::-moz-full-screen{ 
-  max-width: 100%; }
+  max-width: 100%; 
+}
 
 #video-controls{
   position: absolute;
@@ -176,6 +170,7 @@ button{
 #volume-slider {
   float:right;
   margin-top: -6px;
+  width: 50px;
 }
 
 .cc-btn-off{
@@ -199,11 +194,12 @@ button{
 /*Text highligt*/
 
 .caption{
-  max-width: 800px;  
+  max-width: 800px;
+  min-width: 370px;  
   margin: 0 auto;
   padding: 20px;
   width: 100%;
-  height: 60%;
+  height: 70%;
   font-size: 15px;
   background-color: #f0e9da;
 }
