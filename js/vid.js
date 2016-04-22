@@ -5,7 +5,6 @@ var $muteButton = $('#mute');
 var $volumeSlider = $('#volume-slider');
 var $fullScreen = $('#full-screen');
 var $progress = $('#progress-bar');
-var $bufferBar = $('#buffer-bar');
 var $progressBar = $('#time-bar');
 var $bufferBar = $('#buffer-bar');
 var $duration = $('#duration');
