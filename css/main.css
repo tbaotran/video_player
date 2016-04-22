@@ -100,7 +100,7 @@ video::-moz-full-screen{
 
 #video-controls{
   position: absolute;
-  background-color: none;
+  background: none;
   width: 100%;
   margin: 0 auto;
   z-index: 1000;
