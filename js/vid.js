@@ -82,7 +82,7 @@ $capToggle.click(function() {
   if (track.mode == 'hidden') {
         track.mode = 'showing';
         $('.cc-btn-on').hide();
-        $('.cc-btn-off').show();       
+        $('.cc-btn-off').show();     
     } else {
         track.mode = 'hidden';
         $('.cc-btn-off').hide();
@@ -237,16 +237,10 @@ $(function () {
 /* Click on transcript to be taken to that time in the video */
 $("span").click(function() {
   var transcriptTime = $(this).attr("data-start-time");
-  $video[0].currentTime = transcriptTime;
+  $video[0].currentTime = secondsFromTimespan(transcriptTime);
 });
 
-  // $("span").each(function() {
-  //   $(this).on('click', function(){
-  //     var $cueStartTime = $(this).attr('data-start-time');
-  //     $video[0].play();
-  //     $video[0].currentTime = $cueStartTime;
-  //   });
-  // });
+
 
 
 

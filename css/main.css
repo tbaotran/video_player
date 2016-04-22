@@ -37,6 +37,10 @@ p {
   width: 100%;
 }
 
+video::-moz-media-text-track-container {
+top: -36px;
+}
+
 video::-webkit-media-text-track-container {
 top: -36px;
 }
@@ -56,7 +60,18 @@ font-size: 18px;
 padding: 1px 1px 10px 1px;
 }
 
+video::-moz-media-text-track-display {
+color: white;
+font-family: Open Sans, Georgia;
+font-size: 18px;
+padding: 1px 1px 10px 1px;
+}
+
 video::-webkit-media-controls-enclosure {
+  display:none !important;
+}
+
+video::-moz-media-controls-enclosure {
   display:none !important;
 }
 
@@ -64,13 +79,8 @@ video::-webkit-full-screen{
   max-width: 100%; 
 }
 
-video::-moz-full-screen{ max-height: 100%; }
-
-cue:: {
-  color: blue;
-  font: 100px;
-  background: white;
-}
+video::-moz-full-screen{ 
+  max-width: 100%; }
 
 #video-controls{
   position: absolute;
