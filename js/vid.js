@@ -4,8 +4,10 @@ var $playButton = $('#play-pause');
 var $muteButton = $('#mute');
 var $volumeSlider = $('#volume-slider');
 var $fullScreen = $('#full-screen');
-var $progress = $('#progress');
-var $progressBar = $('#progress-bar');
+var $progress = $('#progress-bar');
+var $bufferBar = $('#buffer-bar');
+var $progressBar = $('#time-bar');
+var $bufferBar = $('#buffer-bar');
 var $duration = $('#duration');
 var $controls =$('#wrapper');
 var $capToggle = $('#cc-on-off');
@@ -136,6 +138,29 @@ $video[0].addEventListener('timeupdate', function() {
    $progressBar[0].style.width = Math.floor(($video[0].currentTime / $video[0].duration) * 100) + '%';
 });
 
+/* Function to update the buffer bar */
+      function bufferedBar() {
+      function updateLoadProgress() {
+        if ($video[0].buffered.length > 0) {
+          var percent = ($video[0].buffered.end(0) / $video[0].duration) * 100;
+          $video[0].$bufferBar.css("width", percent + '%');
+        }
+      }
+      $($video[0]).bind("progress", function() {
+        updateLoadProgress();
+      });
+      $($video[0]).bind("loadeddata", function() {
+        updateLoadProgress();
+      });
+      $($video[0]).bind("canplaythrough", function() {
+        updateLoadProgress();
+      });
+      $($video[0]).bind("playing", function() {
+        updateLoadProgress();
+      });
+      console.log();
+    }
+
 /* Skip Ahead */
 $video.bind("timeupdate", videoTimeUpdateHandler);
 $progress.mousedown(progressMouseDown);
@@ -182,7 +207,6 @@ $video.on("timeupdate", function() {
     $duration.html('00:' + Math.floor($videoTime) + ' / 00:59');      
   }
 });
-
 
 /* Setup for Text Highlight*/
 function secondsFromTimespan(timeSpan) {

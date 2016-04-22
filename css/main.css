@@ -3,6 +3,14 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
 
 body{
   font-family: 'Open Sans', Georgia;
@@ -19,8 +27,7 @@ p {
 
 /* Video Containers */
 #video-container{
-  min-width: 420px;
-  max-width: 1280px;
+  max-width: 800px;
   margin: 0 auto;
   position: relative;
   width:100%;
@@ -52,6 +59,15 @@ box-shadow: 0 0px 5px 0px #000;
 opacity: 0.6;
 padding: 4px 8px 6px 10px;
 }
+
+video::-moz-media-text-track-background {
+background-color: black;
+border-radius: 2px;
+box-shadow: 0 0px 5px 0px #000;
+opacity: 0.6;
+padding: 4px 8px 6px 10px;
+}
+
 
 video::-webkit-media-text-track-display {
 color: white;
@@ -102,15 +118,34 @@ button{
   border: none;
   background: none;
   outline: none;
-  margin-top: 1px;
+  margin-top: -10px;
   float: right;
 }
 
-progress{
-    width: 100%;
-    height: 6px;
-    background-color: #8A8585;
+#progress-bar {
+    position: relative;
+    margin: 0 0 0 .5%;
+    width: 99%;
+    height: 4px;
+    background: rgba(255,255,255,0.6);
+    bottom: 18px;
+    z-index: 1000;
 }
+
+#time-bar {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: rgba(240,149,0,1.00);
+}
+
+#buffer-bar {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: red;
+}
+
 
 #play-pause{
   float: left;
@@ -125,7 +160,7 @@ progress{
 #duration{
   display: inline-block;
   color: #fff;
-  margin-top: 8px;
+  margin-top: -8px;
   font-size: 15px;
   float: left;
 }
@@ -140,7 +175,7 @@ progress{
 
 #volume-slider {
   float:right;
-  margin-top: 7px;
+  margin-top: -6px;
 }
 
 .cc-btn-off{
@@ -149,7 +184,7 @@ progress{
 
 .speed-btn{
   color: #fff;
-  margin-top: 2px;
+  margin-top: -9px;
   font-size: 15px;
 }
 
@@ -164,8 +199,7 @@ progress{
 /*Text highligt*/
 
 .caption{
-  min-width: 420px;
-  max-width: 1280px;  
+  max-width: 800px;  
   margin: 0 auto;
   padding: 20px;
   width: 100%;
@@ -175,7 +209,7 @@ progress{
 }
 
 .highlight{
-  color: #f5871f;
+  color: rgba(240,149,0,1.00);
 }
 
 
