@@ -20,7 +20,7 @@ p {
 /* Video Containers */
 #video-container{
   max-width: 800px;
-  min-width: 370px;
+  min-width: 369px;
   margin: 0 auto;
   position: relative;
   width:100%;
@@ -137,7 +137,7 @@ button{
     position: absolute;
     width: 0;
     height: 100%;
-    background-color: red;
+    background-color: rgba(156,153,153,1.00);
 }
 
 
@@ -195,7 +195,7 @@ button{
 
 .caption{
   max-width: 800px;
-  min-width: 370px;  
+  min-width: 369px;  
   margin: 0 auto;
   padding: 20px;
   width: 100%;

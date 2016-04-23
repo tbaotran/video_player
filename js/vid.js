@@ -138,27 +138,26 @@ $video[0].addEventListener('timeupdate', function() {
 });
 
 /* Function to update the buffer bar */
-      function bufferedBar() {
-      function updateLoadProgress() {
-        if ($video[0].buffered.length > 0) {
-          var percent = ($video[0].buffered.end(0) / $video[0].duration) * 100;
-          $video[0].$bufferBar.css("width", percent + '%');
-        }
-      }
-      $($video[0]).bind("progress", function() {
-        updateLoadProgress();
-      });
-      $($video[0]).bind("loadeddata", function() {
-        updateLoadProgress();
-      });
-      $($video[0]).bind("canplaythrough", function() {
-        updateLoadProgress();
-      });
-      $($video[0]).bind("playing", function() {
-        updateLoadProgress();
-      });
-      console.log();
+
+  //start to get video buffering data 
+  setTimeout(startBuffer, 150); 
+
+  //display video buffering bar
+    var startBuffer = function() {
+    var currentBuffer = $video[0].buffered.end(0);
+    var maxduration = $video[0].duration;
+    var perc = 100 * (currentBuffer / maxduration);
+    $('#progress-bar').css('width',perc+'%');
+      
+    if(currentBuffer < maxduration) {
+      setTimeout(startBuffer, 500);
     }
+  };  
+
+/* Use to check if buffer start and end value */
+function bufferedBar() { 
+    alert("Start: " + $video[0].buffered.start(0) + " End: "  + $video[0].buffered.end(0));
+} 
 
 /* Skip Ahead */
 $video.bind("timeupdate", videoTimeUpdateHandler);
@@ -189,11 +188,11 @@ $progress.mousedown(progressMouseDown);
 
 /* Hide controls bar */
 $vidContainer.mouseenter(function () {
-      $controls.fadeIn(250);
+      $controls.fadeIn(500);
       // track.mode = 'hidden';
     });
 $vidContainer.mouseleave(function () {
-      $controls.fadeOut(250);
+      $controls.fadeOut(500);
       // track.mode = 'showing';
     });
 
