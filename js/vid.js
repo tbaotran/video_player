@@ -151,7 +151,7 @@ $video[0].addEventListener('timeupdate', function() {
   };  
       setTimeout(startBuffer, 500); 
 
-/* Use to check if buffer start and end value */
+/* Use ONLY to manually check if buffer start and end value */
 function bufferedBar() { 
     alert("Start: " + $video[0].buffered.start(0) + " End: "  + $video[0].buffered.end(0));
 } 
