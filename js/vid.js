@@ -5,7 +5,7 @@ var $muteButton = $('#mute');
 var $volumeSlider = $('#volume-slider');
 var $fullScreen = $('#full-screen');
 var $progress = $('#progress-bar');
-var $progressBar = $('#time-bar');
+var $timeBar = $('#time-bar');
 var $bufferBar = $('#buffer-bar');
 var $duration = $('#duration');
 var $controls =$('#wrapper');
@@ -50,10 +50,10 @@ $speedToggle.click(function() {
 function toggleSpeed() {
   if($video[0].playbackRate === 1) {
     $video[0].playbackRate = 1.5;
-    $speedToggle.text("Speed: 1.5x");
+    $speedToggle.text("1.5x");
   } else if ($video[0].playbackRate === 1.5) {
     $video[0].playbackRate = 1;
-    $speedToggle.text("Speed: 1.0x");        
+    $speedToggle.text("1.0x");        
   } 
 }
 
@@ -129,30 +129,27 @@ $video[0].addEventListener('loadedmetadata', function() {
 });
 $video[0].addEventListener('timeupdate', function() {
    $progress[0].value = $video[0].currentTime;
-   $progressBar[0].style.width = Math.floor(($video[0].currentTime / $video[0].duration) * 100) + '%';
+   $timeBar[0].style.width = Math.floor(($video[0].currentTime / $video[0].duration) * 100) + '%';
 });
 $video[0].addEventListener('timeupdate', function() {
    if (!$progress[0].getAttribute('max')) $progress[0].setAttribute('max', $video[0].duration);
    $progress[0].value = $video[0].currentTime;
-   $progressBar[0].style.width = Math.floor(($video[0].currentTime / $video[0].duration) * 100) + '%';
+   $timeBar[0].style.width = Math.floor(($video[0].currentTime / $video[0].duration) * 100) + '%';
 });
 
 /* Function to update the buffer bar */
-
-  //start to get video buffering data 
-  setTimeout(startBuffer, 150); 
-
-  //display video buffering bar
+  //loop to get HTML5 video buffered data
     var startBuffer = function() {
     var currentBuffer = $video[0].buffered.end(0);
     var maxduration = $video[0].duration;
     var perc = 100 * (currentBuffer / maxduration);
-    $('#progress-bar').css('width',perc+'%');
-      
+    $('#buffer-bar').css('width',perc+'%');
+    
     if(currentBuffer < maxduration) {
       setTimeout(startBuffer, 500);
     }
   };  
+      setTimeout(startBuffer, 500); 
 
 /* Use to check if buffer start and end value */
 function bufferedBar() { 
@@ -178,7 +175,7 @@ $progress.mousedown(progressMouseDown);
         }
         
         function updateProgressWidth(percent) {
-            $progressBar.width((percent * 100) + '%');
+            $timeBar.width((percent * 100) + '%');
         }
         
         function updateVideoTime(percent) {

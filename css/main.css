@@ -97,7 +97,7 @@ video::-moz-full-screen{
   background: none;
   width: 100%;
   margin: 0 auto;
-  z-index: 1000;
+  z-index: 5;
   bottom: 0;
   left:0;
 }
@@ -120,24 +120,31 @@ button{
     position: relative;
     margin: 0 0 0 .5%;
     width: 99%;
-    height: 4px;
-    background: rgba(255,255,255,0.6);
-    bottom: 18px;
-    z-index: 1000;
+    height: 5px;
+    margin-top: 50px;
+    /*background: rgba(255,255,255,0.6);*/
+    background: blue;
+    bottom: 15px;
+    z-index: 25;
 }
 
 #time-bar {
+    z-index:10;
     position: absolute;
     width: 0;
-    height: 100%;
-    background-color: rgba(240,149,0,1.00);
+    height: 5px;
+    margin-bottom: 50px;
+    /*background-color: rgba(240,149,0,1.00);*/
+    background-color: green;
 }
 
 #buffer-bar {
+    z-index:5;
     position: absolute;
     width: 0;
-    height: 100%;
-    background-color: rgba(156,153,153,1.00);
+    height: 5px;
+    /*background-color: rgba(156,153,153,1.00);*/
+    background-color: red;
 }
 
 
@@ -168,6 +175,7 @@ button{
 }
 
 #volume-slider {
+  z-index:10;
   float:right;
   margin-top: -6px;
   width: 50px;
@@ -199,7 +207,7 @@ button{
   margin: 0 auto;
   padding: 20px;
   width: 100%;
-  height: 75%;
+  height: 70%;
   font-size: 15px;
   background-color: #f0e9da;
 }
