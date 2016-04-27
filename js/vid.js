@@ -143,7 +143,7 @@ $video[0].addEventListener('timeupdate', function() {
     var currentBuffer = $video[0].buffered.end(0);
     var maxduration = $video[0].duration;
     var perc = 100 * (currentBuffer / maxduration);
-    $('#buffer-bar').css('width',perc+'%');
+    $bufferBar.css('width',perc+'%');
     
     if(currentBuffer < maxduration) {
       setTimeout(startBuffer, 500);
